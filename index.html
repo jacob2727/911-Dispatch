@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>911 Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <div class="grid min-h-screen grid-cols-[220px_1fr_280px]">
+      <!-- Left sidebar -->
+      <aside class="flex flex-col border-r border-zinc-800 bg-zinc-900 p-6">
+        <div>
+          <div class="mb-10">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.25em] text-red-500"
+            >
+              911 Dispatch
+            </p>
+
+            <h1 class="mt-2 text-xl font-bold">Operations Center</h1>
+          </div>
+
+          <nav>
+            <ul class="flex flex-col gap-2">
+              <li>
+                <a
+                  href="#"
+                  class="block rounded-lg bg-red-500/10 px-4 py-3 font-medium text-red-400"
+                >
+                  Dashboard
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block rounded-lg px-4 py-3 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                >
+                  Calls
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block rounded-lg px-4 py-3 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                >
+                  Units
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block rounded-lg px-4 py-3 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                >
+                  Reports
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block rounded-lg px-4 py-3 text-zinc-400 transition hover:bg-zinc-800 hover:text-white"
+                >
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="mt-auto border-t border-zinc-800 pt-5">
+          <p class="text-sm text-zinc-500">Signed in as</p>
+          <p class="mt-1 font-semibold">Dispatcher Jacob</p>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="min-w-0 p-8">
+        <header class="mb-6 flex items-center justify-between">
+          <div>
+            <p class="text-sm text-zinc-500">Emergency Command Center</p>
+            <h2 class="mt-1 text-3xl font-bold">Emergency Operations</h2>
+          </div>
+
+          <button
+            class="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-500"
+          >
+            New Call
+          </button>
+        </header>
+
+        <!-- Map -->
+        <section
+          id="map"
+          class="relative h-[520px] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900"
+        >
+          <!-- Map background glow -->
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08),_transparent_65%)]"
+          ></div>
+
+          <!-- Major horizontal roads -->
+          <div
+            class="absolute left-[-5%] top-[20%] h-2 w-[110%] rotate-2 bg-zinc-800"
+          ></div>
+
+          <div
+            class="absolute left-[-5%] top-[48%] h-3 w-[110%] -rotate-3 bg-zinc-800"
+          ></div>
+
+          <div
+            class="absolute left-[-5%] top-[78%] h-2 w-[110%] rotate-1 bg-zinc-800"
+          ></div>
+
+          <!-- Major vertical roads -->
+          <div
+            class="absolute left-[22%] top-[-10%] h-[120%] w-2 -rotate-3 bg-zinc-800"
+          ></div>
+
+          <div
+            class="absolute left-[54%] top-[-10%] h-[120%] w-3 rotate-2 bg-zinc-800"
+          ></div>
+
+          <div
+            class="absolute left-[82%] top-[-10%] h-[120%] w-2 -rotate-1 bg-zinc-800"
+          ></div>
+
+          <!-- Smaller streets -->
+          <div
+            class="absolute left-[5%] top-[35%] h-px w-[55%] rotate-12 bg-zinc-700"
+          ></div>
+
+          <div
+            class="absolute left-[35%] top-[65%] h-px w-[60%] -rotate-12 bg-zinc-700"
+          ></div>
+
+          <div
+            class="absolute left-[10%] top-[88%] h-px w-[70%] rotate-6 bg-zinc-700"
+          ></div>
+
+          <div
+            class="absolute left-[12%] top-[8%] h-px w-[65%] -rotate-6 bg-zinc-700"
+          ></div>
+
+          <!-- Cardiac arrest marker -->
+          <button
+            class="absolute left-[28%] top-[34%] z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-red-600 font-bold text-white shadow-lg shadow-red-600/40 transition hover:scale-110"
+            data-incident="cardiac"
+          >
+            !
+          </button>
+
+          <!-- Fire marker -->
+          <button
+            class="absolute left-[68%] top-[54%] z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-orange-500 font-bold text-white shadow-lg shadow-orange-500/40 transition hover:scale-110"
+            data-incident="fire"
+          >
+            F
+          </button>
+
+          <!-- Police marker -->
+          <button
+            class="absolute left-[79%] top-[24%] z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-blue-600 font-bold text-white shadow-lg shadow-blue-600/40 transition hover:scale-110"
+            data-incident="police"
+          >
+            P
+          </button>
+
+          <!-- Map label -->
+          <div
+            class="absolute bottom-4 left-4 rounded-xl border border-zinc-700 bg-zinc-950/80 px-4 py-3 backdrop-blur"
+          >
+            <p class="text-sm font-semibold">North Dispatch Zone</p>
+            <p class="mt-1 text-xs text-zinc-400">3 active incidents</p>
+          </div>
+
+          <!-- Map controls -->
+          <div class="absolute right-4 top-4 flex flex-col gap-2">
+            <button
+              class="h-10 w-10 rounded-lg border border-zinc-700 bg-zinc-950/80 text-xl hover:bg-zinc-800"
+            >
+              +
+            </button>
+
+            <button
+              class="h-10 w-10 rounded-lg border border-zinc-700 bg-zinc-950/80 text-xl hover:bg-zinc-800"
+            >
+              −
+            </button>
+          </div>
+        </section>
+
+        <!-- Unit status cards -->
+        <section class="mt-6">
+          <div class="mb-4 flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Unit Status</h3>
+            <p class="text-sm text-zinc-500">12 units online</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4">
+            <article class="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold">Medic 12</p>
+                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+              </div>
+
+              <p class="mt-2 text-sm text-zinc-400">Responding</p>
+              <p class="mt-4 text-sm font-medium text-red-400">
+                Cardiac arrest
+              </p>
+            </article>
+
+            <article class="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold">Engine 7</p>
+                <span class="h-2.5 w-2.5 rounded-full bg-orange-500"></span>
+              </div>
+
+              <p class="mt-2 text-sm text-zinc-400">On scene</p>
+              <p class="mt-4 text-sm font-medium text-orange-400">
+                Structure fire
+              </p>
+            </article>
+
+            <article class="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold">Police 4</p>
+                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              </div>
+
+              <p class="mt-2 text-sm text-zinc-400">Available</p>
+              <p class="mt-4 text-sm font-medium text-emerald-400">
+                Ready for dispatch
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right sidebar -->
+      <aside class="border-l border-zinc-800 bg-zinc-900 p-6">
+        <div class="mb-8 flex items-center justify-between">
+          <h2 class="text-lg font-semibold">Active Calls</h2>
+
+          <span
+            id="calls-counter"
+            class="rounded-full bg-red-500/10 px-2.5 py-1 text-xs font-semibold text-red-400"
+          >
+            0 active
+          </span>
+        </div>
+
+        <ul id="calls-section" class="flex flex-col gap-4"></ul>
+      </aside>
+    </div>
+  </body>
+</html>

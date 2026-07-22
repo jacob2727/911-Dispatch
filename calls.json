@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1234",
+    "callType": "Cardiac Arrest",
+    "address": "123 Main Street",
+    "urgency": "Critical",
+    "respondingUnit": "Medic 12",
+    "responseMinutesEta": "2"
+  },
+  {
+    "id": "4321",
+    "callType": "Structure Fire",
+    "address": "456 Oak Avenue",
+    "urgency": "High",
+    "respondingUnit": "Engine 7",
+    "responseMinutesEta": "0"
+  }
+]
