@@ -1,10 +1,10 @@
-package com.comfysleeve.disbatch;
+package com.dispatch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DisbatchApplicationTests {
+class DispatchApplicationTests {
 
     @Test
     void contextLoads() {

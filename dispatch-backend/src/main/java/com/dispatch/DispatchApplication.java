@@ -1,13 +1,13 @@
-package com.comfysleeve.disbatch;
+package com.dispatch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DisbatchApplication {
+public class DispatchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DisbatchApplication.class, args);
+        SpringApplication.run(DispatchApplication.class, args);
     }
 
 }

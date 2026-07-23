@@ -5,7 +5,8 @@
     "address": "123 Main Street",
     "urgency": "Critical",
     "respondingUnit": "Medic 12",
-    "responseMinutesEta": "2"
+    "responseMinutesEta": "2",
+    "notes": "Patient is unconscious"
   },
   {
     "id": "4321",
@@ -13,6 +14,7 @@
     "address": "456 Oak Avenue",
     "urgency": "High",
     "respondingUnit": "Engine 7",
-    "responseMinutesEta": "0"
+    "responseMinutesEta": "0",
+    "notes": "Fire reported on the second floor"
   }
 ]

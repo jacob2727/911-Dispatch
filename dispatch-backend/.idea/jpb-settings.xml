@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseMigrationSettings" lastSelectedDirectory="$PROJECT_DIR$/src/main/java/com/dispatch/user/model" />
+  <component name="JpaLiquibaseChangesConfig">
+    <exclude-change idName="active_calls#created_at" tagName="addNotNullConstraint" />
+  </component>
+</project>
